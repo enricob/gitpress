@@ -51,7 +51,6 @@ function gitpress_widget_init() {
 	    }
 	    
 	    if ( $_POST['gitpress-submit'] ) {
-			// Remember to sanitize and format use input appropriately.
 			$options['title'] = strip_tags(stripslashes($_POST['gitpress-title']));
 			$options['username'] = strip_tags(stripslashes($_POST['gitpress-username']));
 			update_option('gitpress_widget_options', $options);
