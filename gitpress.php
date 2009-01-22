@@ -36,7 +36,8 @@ function gitpress_widget_init() {
 	    echo "<ul id='gitpress-repo-list'>";
 	    foreach ($repos as $repo) {
 	        $repo_name = $repo->{"name"};
-	        echo "<li class='gitpress-repo'><a href='http://github.com/" . $username . "/" . $repo_name . "'>" . $repo_name . "</a>";
+	        $repo_url = $repo->{"url"};
+	        echo "<li class='gitpress-repo'><a href='" . $repo_url . "'>" . $repo_name . "</a></li>";
 	    }
 	    echo "</ul>";
 	    echo $after_widget;
