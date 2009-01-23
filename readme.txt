@@ -35,13 +35,9 @@ you put the stable version, in order to eliminate any doubt.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `gitpress.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Use the widgets admin page to add GitPress widgets to your theme!
 
 == Frequently Asked Questions ==
 
