@@ -1,6 +1,7 @@
 === GitPress ===
 Contributors: enricob
 Tags: github, widget, sidebar
+Requires at least: 2.3
 Tested up to: 2.7
 Stable tag: trunk
 
