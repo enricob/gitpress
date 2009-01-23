@@ -133,7 +133,8 @@ function gitpress_widget_init() {
 	    if ( !$options = get_option('gitpress_widget_options') )
     		$options = array();
 
-    	$widget_ops = array('classname' => 'gitpress_widget', 'description' => __('Widget which allows multiple instances'));
+    	$widget_ops = array('classname' => 'gitpress_widget', 
+    	    'description' => __('Displays repos for a GitHub user'));
     	$control_ops = array('id_base' => 'gitpress');
     	$name = __('GitPress');
 
