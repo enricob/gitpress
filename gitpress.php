@@ -7,6 +7,21 @@ Version: 0.1
 Author URI: http://liveandcode.com/
 */
 
+/*
+               DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                       Version 2, December 2004
+
+    Copyright (C) 2009 Enrico Bianco
+     14 rue de Plaisance, 75014 Paris, France
+    Everyone is permitted to copy and distribute verbatim or modified
+    copies of this license document, and changing it is allowed as long
+    as the name is changed.
+
+               DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+      TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+     0. You just DO WHAT THE FUCK YOU WANT TO.
+*/
 function gitpress_widget_init() {
     
     if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
