@@ -48,6 +48,7 @@ function gitpress_widget_init() {
 	    $username = $options[$number]['username'];
 	    
 	    // Grab the user info using the GitHub API
+	    /*
 	    $curl_session = curl_init();
 	    curl_setopt($curl_session, CURLOPT_URL, 'http://github.com/api/v1/json/' . $username);
 	    curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, 1);
@@ -69,6 +70,14 @@ function gitpress_widget_init() {
         }
 	    echo "</ul>";
 	    echo $after_widget;
+	    */
+	    ?>
+	    <li id="github-badge" style="list-style: none"></li>
+        <script type="text/javascript" charset="utf-8">
+          GITHUB_USERNAME="<?php echo $username ?>";
+          GITHUB_HEAD="h2";
+        </script>
+        <script src="http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js" type="text/javascript"></script><?php
 	}
 	
 	function gitpress_widget_control($widget_args = 1) {
