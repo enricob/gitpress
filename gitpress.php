@@ -160,7 +160,7 @@ function gitpress_widget_init() {
 		
 		echo '<p style="text-align:right;"><label for="' . $title_id . '">' . __('Title:') . ' <input style="width: 200px;" id="' . $title_id . '" name="' . $title_name . '" type="text" value="' . $title .'" /></label></p>';
 		echo '<p style="text-align:right;"><label for="' . $username_id . '">' . __('User:') . ' <input style="width: 200px;" id="' . $username_id . '" name="' . $username_name . '" type="text" value="' . $username . '" /></label></p>';
-		echo '<p style="text-align:right;"><label for="' . $use_badge_id . '">' . __('Use Dr. Nic Badge?') . ' <input style="width: 200px;" id="' . $use_badge_id . '" name="' . $use_badge_name . '" type="checkbox"';
+		echo '<p style="text-align: right;"><label for="' . $use_badge_id . '">' . __('Use Dr. Nic GitHub Badge?') . ' <input id="' . $use_badge_id . '" name="' . $use_badge_name . '" type="checkbox"';
 		if (isset($use_badge)) echo ' checked="true" ';
 		echo '/></label></p>';
 		echo '<input type="hidden" id="' . $submit_id . '" name="' . $submit_name . '" value="1" />';
