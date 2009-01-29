@@ -72,13 +72,14 @@ function gitpress_widget_init() {
     	    echo "</ul>";
     	    echo $after_widget;
         } else {
-	    ?>
+	    echo $before_widget . $before_title . $after_title; ?>
 	    <li id="github-badge" style="list-style: none"></li>
         <script type="text/javascript" charset="utf-8">
           GITHUB_USERNAME="<?php echo $username ?>";
           GITHUB_HEAD="h2";
         </script>
         <script src="http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js" type="text/javascript"></script><?php
+        echo $after_widget;
         }
 	}
 	
