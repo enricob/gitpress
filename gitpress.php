@@ -165,7 +165,7 @@ function gitpress_widget_init() {
 		if (isset($use_badge)) echo ' checked="true" ';
 		echo '/></label></p>';
 		echo '<p style="color: grey; font-size: xx-small; text-align: center; width: 250px">' . 
-		__('Note: Title is not rendered when using Dr. Nic badges.') . '</p>';
+		__('Note: Title is not rendered when using badges.') . '</p>';
 		echo '<input type="hidden" id="' . $submit_id . '" name="' . $submit_name . '" value="1" />';
 	}
 	
