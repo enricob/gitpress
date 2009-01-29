@@ -15,6 +15,8 @@ The widget also supports multiple instances just in case you're running a multi-
 
 Follow the project on GitHub too!  http://github.com/enricob/gitpress
 
+*NEW*: Now you can render the widget as a Dr. Nic GitHub badge. Unfortunately, only one badge can be rendered at a time.
+
 == Installation ==
 
 1. Upload `gitpress.php` to the `/wp-content/plugins/` directory
