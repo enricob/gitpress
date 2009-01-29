@@ -46,31 +46,32 @@ function gitpress_widget_init() {
 	    $options = get_option('gitpress_widget_options');
 	    $title = $options[$number]['title'];
 	    $username = $options[$number]['username'];
+	    $use_badge = $options[$number]['use_badge'];
 	    
 	    // Grab the user info using the GitHub API
-	    /*
-	    $curl_session = curl_init();
-	    curl_setopt($curl_session, CURLOPT_URL, 'http://github.com/api/v1/json/' . $username);
-	    curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, 1);
-	    $result = json_decode(curl_exec($curl_session));
-	    curl_close($curl_session);
+	    if (!isset($use_badge)) {
+	        $curl_session = curl_init();
+    	    curl_setopt($curl_session, CURLOPT_URL, 'http://github.com/api/v1/json/' . $username);
+    	    curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, 1);
+    	    $result = json_decode(curl_exec($curl_session));
+    	    curl_close($curl_session);
 	    
-	    $userinfo = $result->{"user"};
-	    $repos = $userinfo->{"repositories"};
+    	    $userinfo = $result->{"user"};
+    	    $repos = $userinfo->{"repositories"};
 	    
 	    
-	    echo $before_widget . $before_title . $title . $after_title;
-	    echo "<ul id='gitpress-repo-list-" . $number . "' class='widget gitpress-repo-list'>";
-	    if (isset($repos)) {
-	        foreach ($repos as $repo) {
-    	        $repo_name = $repo->{"name"};
-    	        $repo_url = $repo->{"url"};
-    	        echo "<li class='gitpress-repo'><a href='" . $repo_url . "'>" . $repo_name . "</a></li>";
-    	    }
-        }
-	    echo "</ul>";
-	    echo $after_widget;
-	    */
+    	    echo $before_widget . $before_title . $title . $after_title;
+    	    echo "<ul id='gitpress-repo-list-" . $number . "' class='widget gitpress-repo-list'>";
+    	    if (isset($repos)) {
+    	        foreach ($repos as $repo) {
+        	        $repo_name = $repo->{"name"};
+        	        $repo_url = $repo->{"url"};
+        	        echo "<li class='gitpress-repo'><a href='" . $repo_url . "'>" . $repo_name . "</a></li>";
+        	    }
+            }
+    	    echo "</ul>";
+    	    echo $after_widget;
+        } else {
 	    ?>
 	    <li id="github-badge" style="list-style: none"></li>
         <script type="text/javascript" charset="utf-8">
@@ -78,6 +79,7 @@ function gitpress_widget_init() {
           GITHUB_HEAD="h2";
         </script>
         <script src="http://drnicjavascript.rubyforge.org/github_badge/dist/github-badge-launcher.js" type="text/javascript"></script><?php
+        }
 	}
 	
 	function gitpress_widget_control($widget_args = 1) {
@@ -125,7 +127,11 @@ function gitpress_widget_init() {
     				    continue;
     			$title = strip_tags(stripslashes($gitpress_widget_instance['title']));
     			$username = strip_tags(stripslashes($gitpress_widget_instance['username']));
-    			$options[$widget_number] = array( 'title' => $title, 'username' => $username );
+    			if (isset($gitpress_widget_instance['use_badge'])) {
+    			    $options[$widget_number] = array( 'title' => $title, 'username' => $username, 'use_badge' => 'true');
+    			} else {
+    			    $options[$widget_number] = array( 'title' => $title, 'username' => $username );
+			    }
     		}
 
     		update_option('gitpress_widget_options', $options);
@@ -140,17 +146,23 @@ function gitpress_widget_init() {
     	} else {
     		$title = attribute_escape($options[$number]['title']);
     		$username = attribute_escape($options[$number]['username']);
+    		$use_badge = $options[$number]['use_badge'];
     	}
 		
 		$title_id = 'gitpress-title-' . $number;
 		$title_name = 'gitpress-widget[' . $number . '][title]';
 		$username_id = 'gitpress-username-' . $number;
 		$username_name = 'gitpress-widget[' . $number . '][username]';
+		$use_badge_id = 'gitpress-use_badge-' . $number;
+		$use_badge_name = 'gitpress-widget[' . $number . '][use_badge]';
 		$submit_id = 'gitpress-submit-' . $number;
 		$submit_name = 'gitpress-widget[' . $number . '][submit]';
 		
 		echo '<p style="text-align:right;"><label for="' . $title_id . '">' . __('Title:') . ' <input style="width: 200px;" id="' . $title_id . '" name="' . $title_name . '" type="text" value="' . $title .'" /></label></p>';
 		echo '<p style="text-align:right;"><label for="' . $username_id . '">' . __('User:') . ' <input style="width: 200px;" id="' . $username_id . '" name="' . $username_name . '" type="text" value="' . $username . '" /></label></p>';
+		echo '<p style="text-align:right;"><label for="' . $use_badge_id . '">' . __('Use Dr. Nic Badge?') . ' <input style="width: 200px;" id="' . $use_badge_id . '" name="' . $use_badge_name . '" type="checkbox"';
+		if (isset($use_badge)) echo ' checked="true" ';
+		echo '/></label></p>';
 		echo '<input type="hidden" id="' . $submit_id . '" name="' . $submit_name . '" value="1" />';
 	}
 	
