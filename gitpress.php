@@ -4,7 +4,7 @@ Plugin Name: GitPress
 Plugin URI: http://enricob.github.com/gitpress
 Description: This plugin provides a widget that lists a user's GitHub repositories.
 Author: Enrico Bianco
-Version: 0.1
+Version: 0.2
 Author URI: http://enricob.github.com/
 */
 
@@ -165,7 +165,7 @@ function gitpress_widget_init() {
 		if (isset($use_badge)) echo ' checked="true" ';
 		echo '/></label></p>';
 		echo '<p style="color: grey; font-size: xx-small; text-align: center; width: 250px">' . 
-		__('Note: Title is not rendered when using badges.') . '</p>';
+		__('Note: Title is not rendered for badges and only one badge can be rendered at a time. ') . '</p>';
 		echo '<input type="hidden" id="' . $submit_id . '" name="' . $submit_name . '" value="1" />';
 	}
 	
