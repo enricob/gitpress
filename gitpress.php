@@ -4,7 +4,7 @@ Plugin Name: GitPress
 Plugin URI: http://enricob.github.com/gitpress
 Description: This plugin provides a widget that lists a user's GitHub repositories.
 Author: Enrico Bianco
-Version: 0.2
+Version: 0.2.1
 Author URI: http://enricob.github.com/
 */
 
